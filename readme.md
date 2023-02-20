@@ -12,6 +12,7 @@ pip install PyPDF2
 
 ## Authors
 Giovanni de Aguirre Tamanini
+
 Juarez Tamanini
 
 PDF Project v0.1.0
