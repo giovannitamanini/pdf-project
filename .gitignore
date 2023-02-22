@@ -1,6 +1,5 @@
 *.txt
 plot.py
 plot2.py
-*.png
 /graphs
-/pdfs/*.pdf
+/pdfs
