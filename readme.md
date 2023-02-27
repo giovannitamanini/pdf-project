@@ -8,6 +8,7 @@ You will need:
 
 ````
 pip install PyPDF2
+pip install mysql-connector-python
 ````
 
 ## Authors
@@ -15,5 +16,5 @@ Giovanni de Aguirre Tamanini
 
 Juarez Tamanini
 
-## Version
+#Version
 PDF Project v0.1.0
