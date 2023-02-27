@@ -4,11 +4,11 @@ This project was created for training the Python programming language in conjunc
 ## Considerations
 Built and tested with Windows 10/11, Python 3.9.13('base':conda), MySQL v.8.0.31
 
-You will need:
+You will need a folder called pdfs in the root folder containing the pdfs for analysis, and:
 
 ````
 pip install PyPDF2
-pip install mysql-connector-python
+pip install mysql-connector-pytho
 ````
 
 ## Authors
