@@ -11,6 +11,28 @@ pip install PyPDF2
 pip install mysql-connector-pytho
 ````
 
+## Documentation
+
+First, run the program to create the database in MySQL, assuming that the user has already made the previous configurations in the database:
+
+````
+python create_db.py
+````
+
+Run the programs menu to choose a feature:
+
+````
+python programs_menu.py
+````
+
+First register the most important information of the pdf in the database, running option [1];
+Add the words exceptions from the CSV file by running option [2]. Remembering that exception words will not be counted in the word analysis of the pdf (that's why they are exceptions);
+If you want to add some more exception words to the bank, run option [3];
+Choose option [4] for the application to register the words in the pdf in the database and count how many times they appear;
+If you want to show which words appear most in the pdf, run option [5];
+You can add some word that you think is special in the analysis, using CRUD Special Word (option [6]);
+To exit choose option [0];
+
 ## Authors
 Giovanni de Aguirre Tamanini
 
