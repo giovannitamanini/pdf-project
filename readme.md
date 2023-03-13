@@ -8,7 +8,7 @@ You will need a folder called pdfs in the root folder containing the pdfs for an
 
 ````
 pip install PyPDF2
-pip install mysql-connector-pytho
+pip install mysql-connector-python
 ````
 
 ## Documentation
