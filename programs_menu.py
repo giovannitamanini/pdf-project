@@ -14,7 +14,7 @@ def run_program(option):
 	elif option == 3:
 		os.system("python insert_exception.py")
 	elif option == 4:
-		os.system("python count_word_pdf_copy.py")
+		os.system("python count_word_pdf.py")
 	elif option == 5:
 		os.system("python top_words.py")
 	elif option == 6:
