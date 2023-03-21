@@ -1,5 +1,4 @@
 *.txt
-plot.py
-plot2.py
 /graphs
 /pdfs
+/indexes

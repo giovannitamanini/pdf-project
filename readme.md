@@ -8,7 +8,8 @@ You will need a folder called pdfs in the root folder containing the pdfs for an
 
 ````
 pip install PyPDF2
-pip install mysql-connector-pytho
+pip install mysql-connector-python
+pip install matplotlib
 ````
 
 ## Documentation
@@ -35,7 +36,11 @@ Choose option [4] for the application to register the words in the pdf in the da
 
 If you want to show which words appear most in the pdf, run option [5];
 
-You can add some word that you think is special in the analysis, using CRUD Special Word (option [6]);
+Select option [6] to generates index for a chosen PDF;
+
+If you want to generate a bar chart with the words that appear the most in a given PDF choose option [7];
+
+You can add some word that you think is special in the analysis, using CRUD Special Word (option [8]);
 
 To exit choose option [0];
 
@@ -45,4 +50,4 @@ Giovanni de Aguirre Tamanini
 Juarez Tamanini
 
 ## Version
-PDF Project v0.1.0
+PDF Project v0.1.1
