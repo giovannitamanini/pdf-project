@@ -90,13 +90,11 @@ def last_function():
 	global pdf_name
 	
 	actual = last
-	#print(table)
 	if last == -1:
 		status_msg = "There are no registers in the table. Use the 'Add' option to add new registers"
 		status = ttk.Label(screen, text=status_msg, width=65, border=1, relief=SUNKEN, anchor=W).place(x=5, y=200)
 	else:
 		item = table[actual]
-		#print(item)
 		entry_pdf.delete(0,"end")
 		entry_pdf.insert(0,item[1])
 		entry_word.delete(0,"end")
@@ -133,7 +131,6 @@ def commit_add():
 		result = cursor.fetchall()
 		if len(result) == 0:
 			query = "INSERT INTO special_word (id_pdf_information, word) VALUES (%d,'%s')" %(id_pdf, word)
-			#print(query)
 			cursor.execute(query )
 			#Commiting changes
 			con.commit()
@@ -181,9 +178,6 @@ def check_informed_data(*args):
 				else:
 					status_msg = "Press OK button to complete the Add"		
 					status = ttk.Label(screen, text=status_msg, width=65, border=1, relief=SUNKEN, anchor=W).place(x=5, y=200)
-	
-	#variaveis = "PDF = " + str(v_id_pdf) + "\n Palavra = " + str(v_palavra)
-	#messagebox.showinfo("Valor das variáveis digitadas = ", variaveis)
 	
 def exist_counted_pdf(id_pdf):
 	global pdf_name

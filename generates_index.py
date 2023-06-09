@@ -1,5 +1,6 @@
 #Importing modules
 import mysql.connector
+import docx
 from docx import Document
 from docx.enum.style import WD_STYLE_TYPE
 from docx.enum.table import WD_TABLE_ALIGNMENT
@@ -40,43 +41,55 @@ def generates_index(pdf_id, name) :
 
     # Style Paragraph 1
     p = styles.add_style("Paragraph1", WD_STYLE_TYPE.PARAGRAPH)
-    p.font.name = "Calibri"
+    p.font.name = "Courier New"
     p.font.size = Pt(11)
     p.font.color.rgb = RGBColor(0, 0, 255)
+    p.paragraph_format.space_before = Pt(0)
+    p.paragraph_format.space_after = Pt(0)
+    p.paragraph_format.line_spacing = 1
     # Style Paragraph 2
     q = styles.add_style("Paragraph2", WD_STYLE_TYPE.PARAGRAPH)
-    q.font.name = "Calibri"
+    q.font.name = "Courier New"
     q.font.size = Pt(11)
     q.font.color.rgb = RGBColor(139, 0, 0)
+    q.paragraph_format.space_before = Pt(0)
+    q.paragraph_format.space_after = Pt(0)
+    q.paragraph_format.line_spacing = 1
     # Style Heading 1
     h1 = styles.add_style("H1", WD_STYLE_TYPE.PARAGRAPH)
     h1.base_style = styles["Heading 1"]
-    h1.font.name = "Calibri"
+    h1.font.name = "Courier New"
     h1.font.size = Pt(12)
     h1.font.bold = False
-    #h1.font.color.rgb = RGBColor(0, 0, 128)
+    h1.font.color.rgb = RGBColor(0, 0, 128)
+    h1.paragraph_format.space_before = Pt(10)
+    h1.paragraph_format.space_after = Pt(10)
+    h1.paragraph_format.line_spacing = 1
 
     # Add Title
     document.add_heading("PDF: " + name, 0)
     document.add_heading("Index of main words")
 
     # Add paragraph with H1
-    document.add_paragraph("Special Words: ", style="H1")
+    document.add_paragraph("Special Words: ", h1)
 
     for word_array in special_words :
         # Add paragraph 2 - font color = red
         word = word_array[0]
+        word = word.strip()
         query = "SELECT DISTINCT word, page_number FROM word_page_number WHERE id_pdf_information = %d AND word = '%s'" %(pdf_id, word)
         cursor.execute(query)
         print(query)
         page_numbers = cursor.fetchall()
         pages = ""
         for page in page_numbers :
-            pages = pages + str(page[1]) + ";"
-        #del pages[-1]
-        document.add_paragraph(word+ "\nPáginas: " + pages, style="Paragraph2")
+            if page == page_numbers[-1]:
+                pages = pages + str(page[1]) + "."
+            else :
+                pages = pages + str(page[1]) + ", "
+        space_word = 30 - len(word)
+        document.add_paragraph(word+"."*space_word+" page: " +pages, style="Paragraph2")
 
-    document.add_paragraph()
     # Add paragraph with H1
     document.add_paragraph("Top Words: ", style="H1")
 
@@ -88,9 +101,12 @@ def generates_index(pdf_id, name) :
         page_numbers = cursor.fetchall()
         pages = ""
         for page in page_numbers :
-            pages = pages + str(page[1]) + ";"
-        #del pages[-1]
-        document.add_paragraph(word+ "\nPáginas: " + pages, style="Paragraph1")
+            if page == page_numbers[-1]:
+                pages = pages + str(page[1]) + "."
+            else :
+                pages = pages + str(page[1]) + ", "
+        space_word = 30 - len(word)
+        document.add_paragraph(word+"."*space_word+" page: "+pages, style="Paragraph1")
 
     docx_archive = output_path + "/indexOf_"+str(name)+".docx"
     document.save(docx_archive)
@@ -98,12 +114,13 @@ def generates_index(pdf_id, name) :
     return()
 
 #Connecting to MySQL
+
 HOST = input("Enter MySQL Host: ")
 USER = input("Enter your MySQL User: ")
 PASSWD = input("Enter the password: ")
 
 global con
-con = mysql.connector.connect(host = HOST, user = USER, passwd = PASSWD)
+con = mysql.connector.connect(host = "localhost", user = "root", passwd = "12345")
 
 control = True
 

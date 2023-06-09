@@ -27,6 +27,9 @@ class CountPDF():
 		db_info = con.get_server_info()
 		print("\nConnected in MySQL v", db_info,"\n")
 
+		#Setting charset collation to utf8mb4
+		#con.set_charset_collation('utf8mb4') 
+
 		#Establishing cursor
 		cursor = con.cursor()
 

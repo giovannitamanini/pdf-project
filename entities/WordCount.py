@@ -64,7 +64,7 @@ class WordCount():
 					page_conntent = pageObj.extract_text()
 					
 					#Replace special characters with white ' ' in string
-					page_conntent = page_conntent.replace('/',' ').replace('-',' ').replace('.',' ').replace(',',' ').replace(':',' ').replace(';',' ').replace('!',' ').replace('?',' ').replace('"',' ').replace("'",' ').replace('(',' ').replace(')',' ').replace('_',' ').replace('―',' ').replace('–', ' ').replace('>',' ').replace('»', ' ').replace('•', ' ')	
+					page_conntent = page_conntent.replace('/',' ').replace('-',' ').replace('.',' ').replace(',',' ').replace(':',' ').replace(';',' ').replace('!',' ').replace('?',' ').replace('"',' ').replace("'",' ').replace('(',' ').replace(')',' ').replace('_',' ').replace('―',' ').replace('–', ' ').replace('>',' ').replace('»', ' ').replace('•', ' ').replace('”', ' ')	
 					
 					#A replace of digits with white ' ' in the string
 					page_conntent = page_conntent.replace('0',' ').replace('1',' ').replace('2',' ').replace('3',' ').replace('4',' ').replace('5',' ').replace('6',' ').replace('7',' ').replace('8',' ').replace('9',' ')
@@ -100,9 +100,18 @@ class WordCount():
 								words = self.cursor.fetchall()
 
 								if len(words) == 0 :
-									query = "INSERT INTO word_count (id_pdf_information, word, count) VALUES ('%d', '%s', 1) " %(pdf_id, word)
-									#print(query)
-									self.cursor.execute(query)
+									if "Jesus" in word :
+										if len(word) == 5 :
+											print(word + " - Comprimento = " + str(len(word)))
+											query = "INSERT INTO word_count (id_pdf_information, word, count) VALUES ('%d', '%s', 1) " %(pdf_id, word)
+											self.cursor.execute(query)
+										else :
+											print("A página da palavra corrompida é : " + str(page_num) + " e o PDF tem o ID: " + str(pdf_id))
+											continue
+									else :
+										query = "INSERT INTO word_count (id_pdf_information, word, count) VALUES ('%d', '%s', 1) " %(pdf_id, word)
+										#print(query)
+										self.cursor.execute(query)
 			
 								else:
 									query = "UPDATE word_count SET count = count + 1 WHERE id_pdf_information = '%d' AND word = '%s'" %(pdf_id, word)
