@@ -1,11 +1,18 @@
 #Importing modules
 import mysql.connector
 
-#Connecting to MySQL
+# =========================================
+HOST = "localhost"
+USER = "root"
+PASSWD = "12345"
+# =========================================
 
+#Connecting to MySQL
+"""
 HOST = input("Enter MySQL Host: ")
 USER = input("Enter your MySQL User: ")
 PASSWD = input("Enter the password: ")
+"""
 
 con = mysql.connector.connect(host = HOST, user = USER, passwd = PASSWD)
 

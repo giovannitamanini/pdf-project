@@ -5,9 +5,17 @@ from pathlib import Path
 import glob
 
 #Connecting to MySQL
+# =========================================
+HOST = "localhost"
+USER = "root"
+PASSWD = "12345"
+# =========================================
+
+"""
 HOST = input("Enter MySQL Host: ")
 USER = input("Enter your MySQL User: ")
 PASSWD = input("Enter the password: ")
+"""
 
 con = mysql.connector.connect(host = HOST, user = USER, passwd = PASSWD)
 
@@ -22,7 +30,7 @@ if con.is_connected() :
     cursor = con.cursor()
 
     #Making changes
-    input_path = ''
+    input_path = 'C://Users//gdatn//Documentos//python//estudos//Atividades//pdfProject//pdfs'
     answer = input("Do you want to inform the PATH of the PDF files? Or should I keep the default?\nEnter [Y] to inform, or [N] to default:")
     if answer == 'Y' :
         input_path = input("\nEnter the PATH of the PDF files:")

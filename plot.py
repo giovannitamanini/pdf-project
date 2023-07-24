@@ -2,9 +2,16 @@ import matplotlib.pyplot as plt
 import mysql.connector
 
 #Connecting to MySQL
+# =========================================
+HOST = "localhost"
+USER = "root"
+PASSWD = "12345"
+# =========================================
+"""
 HOST = input("Enter MySQL Host: ")
 USER = input("Enter your MySQL User: ")
 PASSWD = input("Enter the password: ")
+"""
 
 #Output graphs PATH
 output_directory = "C:/Users/gdatn/Documentos/python/estudos/Atividades/pdfProject/graphs"

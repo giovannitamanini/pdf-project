@@ -271,9 +271,16 @@ def close_frame():
 	status = ttk.Label(screen, text=status_msg, width=65, border=1, relief=SUNKEN, anchor=W).place(x=5, y=200)
 
 #Connecting to MySQL
+# =========================================
+HOST = "localhost"
+USER = "root"
+PASSWD = "12345"
+# =========================================
+"""
 HOST = input("Enter MySQL Host: ")
 USER = input("Enter your MySQL User: ")
 PASSWD = input("Enter the password: ")
+"""
 
 con = mysql.connector.connect(host = HOST, user = USER, passwd = PASSWD)
 

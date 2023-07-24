@@ -3,15 +3,23 @@ import mysql.connector
 import csv
 
 #Path csv_file
-csv_file = ''
+csv_file = "C://Users//gdatn//Documentos//python//estudos//Atividades//pdfProject//exception_words.csv"
 answer = input("Do you want to inform the PATH of the CSV file? Or should I keep the default?\nEnter [Y] to inform, or [N] to default:")
 if answer == 'Y' :
     csv_file = input("\nEnter the PATH of the CSV file:")
 
 #Connecting to MySQL
+
+# =========================================
+HOST = "localhost"
+USER = "root"
+PASSWD = "12345"
+# =========================================
+"""
 HOST = input("Enter MySQL Host: ")
 USER = input("Enter your MySQL User: ")
 PASSWD = input("Enter the password: ")
+"""
 
 con = mysql.connector.connect(host = HOST, user = USER, passwd = PASSWD)
 

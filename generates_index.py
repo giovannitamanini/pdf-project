@@ -114,10 +114,16 @@ def generates_index(pdf_id, name) :
     return()
 
 #Connecting to MySQL
-
+# =========================================
+HOST = "localhost"
+USER = "root"
+PASSWD = "12345"
+# =========================================
+"""
 HOST = input("Enter MySQL Host: ")
 USER = input("Enter your MySQL User: ")
 PASSWD = input("Enter the password: ")
+"""
 
 global con
 con = mysql.connector.connect(host = "localhost", user = "root", passwd = "12345")

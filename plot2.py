@@ -44,9 +44,16 @@ def search_pdf_data (pdf) :
 # Program Start...
 global con 
 
+# =========================================
+HOST = "localhost"
+USER = "root"
+PASSWD = "12345"
+# =========================================
+"""
 HOST = input("Enter MySQL Host: ")
 USER = input("Enter your MySQL User: ")
 PASSWD = input("Enter the password: ")
+"""
 
 con = mysql.connector.connect(host = HOST, user = USER, passwd = PASSWD)
 
