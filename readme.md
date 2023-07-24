@@ -50,4 +50,4 @@ Giovanni de Aguirre Tamanini
 Juarez Tamanini
 
 ## Version
-PDF Project v0.2.0
+PDF Project v0.3.0
